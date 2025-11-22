@@ -8,7 +8,6 @@ date: "2025-11-15"
 
 ## Modelos univariados para OR e AUC:
 ```{r}
-# 01_univariada.R
 # Etapa 1: regressões logísticas simples por variável
 # Este script supõe que funcoes_modelagem.R foi carregado
 
@@ -18,7 +17,6 @@ source("funcoes_modelagem.R")
 
 #----------------------------------------------------------
 # 0. Reprodutibilidade (renv + seed)
-#----------------------------------------------------------
 
 # renv::init()
 
@@ -26,7 +24,6 @@ set.seed(1234)
 
 #----------------------------------------------------------
 # 1. Leitura da base analítica
-#----------------------------------------------------------
 
 dados_analitico_FINAL <- ler_dados_analiticos("dados_analitico_FINAL.xlsx")
 
@@ -35,7 +32,6 @@ desfecho <- "desfecho_exacerbacao_1ano"
 
 #----------------------------------------------------------
 # 2. Definição dos blocos de variáveis e exclusões
-#----------------------------------------------------------
 
 # Bloco: variáveis demográficas categóricas
 vars_cat_demog_univ <- list(
@@ -302,7 +298,7 @@ vars_cat_terapeutico_univ <- list(
 
 #----------------------------------------------------------
 # 3. Ajuste dos modelos por bloco
-#----------------------------------------------------------
+
 
 # Demográficas categóricas
 res_demog_cat <- ajustar_bloco_categoricas(
@@ -355,7 +351,6 @@ res_terapeutico_cat <- ajustar_bloco_categoricas(
 
 #----------------------------------------------------------
 # 4. Exportar/organizar resultados para o Rmd
-#----------------------------------------------------------
 
 # Exemplo: salvar em objetos que serão usados no .Rmd
 save(
